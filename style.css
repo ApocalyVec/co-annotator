@@ -1,0 +1,599 @@
+/* ============================================================
+   Co-Annotator — GitHub Pages (same theme as the SwEYEpinch page)
+   ============================================================ */
+
+:root{
+  --bg0:#060A12;
+  --bg1:#090F1B;
+  --card:rgba(255,255,255,.06);
+  --card2:rgba(255,255,255,.08);
+  --stroke:rgba(255,255,255,.12);
+  --stroke2:rgba(255,255,255,.18);
+  --text:#EAF0FF;
+  --muted:rgba(234,240,255,.72);
+
+  --blue:#4361EE;
+  --cyan:#4CC9F0;
+  --pink:#F72585;
+
+  --shadow: 0 12px 40px rgba(0,0,0,.55);
+  --shadow2: 0 18px 60px rgba(0,0,0,.65);
+  --r: 18px;
+  --r2: 22px;
+  --max: 1100px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:80px}   /* section headings clear the sticky top bar */
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  color:var(--text);
+  background:
+          radial-gradient(900px 600px at 12% 10%, rgba(67,97,238,.35), transparent 55%),
+          radial-gradient(900px 600px at 85% 8%, rgba(247,37,133,.24), transparent 55%),
+          radial-gradient(900px 600px at 70% 80%, rgba(76,201,240,.22), transparent 55%),
+          linear-gradient(180deg, var(--bg0), var(--bg1));
+  overflow-x:hidden;
+}
+
+a{color:inherit; text-decoration:none}
+img{max-width:100%; height:auto}
+code,pre{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
+
+.container{
+  width:min(var(--max), calc(100% - 40px));
+  margin:0 auto;
+}
+
+.nowrap{white-space:nowrap}
+
+.muted{color:var(--muted)}
+.subnote{color:var(--muted); margin-top:18px}
+.note{color:rgba(234,240,255,.68); margin-top:14px; font-size:.95rem}
+
+/* ============================================================
+   Topbar
+   ============================================================ */
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:10;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: rgba(6,10,18,.55);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.topbar .container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 0;
+  gap:18px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.brand-dot{
+  width:12px;height:12px;border-radius:999px;
+  background: radial-gradient(circle at 30% 30%, var(--cyan), var(--blue));
+  box-shadow: 0 0 18px rgba(76,201,240,.35);
+}
+
+.brand-text{
+  font-weight:700;
+  letter-spacing:.2px;
+}
+
+.nav{
+  display:flex;
+  gap:18px;
+  align-items:center;
+}
+
+.nav a{
+  color:rgba(234,240,255,.78);
+  font-weight:600;
+  font-size:.95rem;
+  padding:8px 10px;
+  border-radius:12px;
+  transition: background .15s ease, color .15s ease;
+}
+
+.nav a:hover{
+  color:var(--text);
+  background: rgba(255,255,255,.06);
+}
+
+.nav-toggle{
+  display:none;
+  appearance:none;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  border-radius:14px;
+  padding:10px 10px;
+  cursor:pointer;
+}
+
+.nav-toggle span{
+  display:block;
+  width:18px;height:2px;
+  background: rgba(234,240,255,.82);
+  margin:4px 0;
+  border-radius:999px;
+}
+
+/* ============================================================
+   Hero
+   ============================================================ */
+
+.hero{
+  padding:54px 0 26px;
+  position:relative;
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns: 1.2fr .9fr;
+  gap:26px;
+  align-items:start;
+}
+
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  color:rgba(234,240,255,.9);
+  font-weight:650;
+  font-size:.9rem;
+}
+
+h1{
+  margin:16px 0 10px;
+  font-size: clamp(2rem, 3vw, 2.7rem);
+  line-height:1.08;
+  letter-spacing:-.3px;
+}
+
+.authors{
+  margin:10px 0 4px;
+  color:rgba(234,240,255,.85);
+  font-weight:600;
+}
+
+.affil{
+  margin:0 0 14px;
+  color:rgba(234,240,255,.62);
+  font-weight:600;
+}
+
+.lede{
+  margin: 10px 0 18px;
+  color:rgba(234,240,255,.78);
+  line-height:1.55;
+  font-size:1.02rem;
+}
+
+/* ============================================================
+   CTA Pills (icons)
+   ============================================================ */
+
+.cta-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin: 10px 0 10px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  cursor:pointer;
+  user-select:none;
+  transition: transform .12s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+
+.btn:active{transform: translateY(1px)}
+
+.btn.pill{
+  padding:10px 14px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+
+.btn.pill.primary{
+  border-color: rgba(76,201,240,.35);
+  background: linear-gradient(90deg, rgba(67,97,238,.38), rgba(76,201,240,.28));
+  box-shadow: 0 12px 34px rgba(0,0,0,.35), 0 0 0 1px rgba(76,201,240,.14) inset;
+}
+
+.btn.pill .pill-icon{
+  width:28px;
+  height:28px;
+  border-radius:10px;
+  display:grid;
+  place-items:center;
+  background: rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.10);
+  flex: 0 0 auto;
+}
+
+.btn.pill .pill-icon img{
+  width:16px;
+  height:16px;
+  display:block;
+  object-fit:contain;
+  /* SimpleIcons PNGs are usually black -> invert for dark UI */
+  filter: invert(1);
+  opacity:.95;
+}
+
+.btn.pill .pill-text{
+  font-weight:750;
+  letter-spacing:.2px;
+  color:rgba(234,240,255,.92);
+}
+
+.btn.pill .pill-tag{
+  margin-left:8px;
+  padding:6px 10px;
+  border-radius:999px;
+  background: rgba(0,0,0,.20);
+  border:1px solid rgba(255,255,255,.10);
+  color:rgba(234,240,255,.86);
+  font-weight:800;
+  letter-spacing:.15px;
+}
+
+.btn.pill.disabled{
+  opacity:.55;
+  cursor:not-allowed;
+  transform:none !important;
+}
+
+/* Hover states */
+.btn.pill:hover{
+  border-color: rgba(255,255,255,.24);
+  background: rgba(255,255,255,.07);
+}
+.btn.pill.primary:hover{
+  border-color: rgba(76,201,240,.5);
+  background: linear-gradient(90deg, rgba(67,97,238,.42), rgba(76,201,240,.32));
+}
+
+/* If you use a colored (non-black) icon, add class="color" to the <img> to disable invert */
+.btn.pill .pill-icon img.color{
+  filter:none;
+}
+
+/* ============================================================
+   Hero right card
+   ============================================================ */
+
+.card{
+  border-radius: var(--r2);
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.05);
+  box-shadow: var(--shadow);
+  overflow:hidden;
+}
+
+.card.pad{padding:18px 18px}
+
+.thumb-link{
+  display:block;
+}
+
+figure.card img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+figure.card figcaption{
+  padding:12px 14px 14px;
+  color:rgba(234,240,255,.72);
+  font-size:.95rem;
+  border-top:1px solid rgba(255,255,255,.08);
+  background: rgba(0,0,0,.10);
+}
+
+/* ============================================================
+   Sections
+   ============================================================ */
+
+.section{
+  padding:52px 0;
+}
+
+.section.alt{
+  background: rgba(255,255,255,.02);
+  border-top:1px solid rgba(255,255,255,.06);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.section h2{
+  margin:0 0 18px;
+  font-size:1.6rem;
+  letter-spacing:-.2px;
+}
+
+.grid-2{
+  display:grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap:18px;
+}
+
+.grid-3{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:16px;
+}
+
+h3{
+  margin:0 0 10px;
+  font-size:1.1rem;
+  letter-spacing:-.15px;
+}
+
+p{margin:0 0 12px; line-height:1.6}
+
+.bullets{
+  margin:0;
+  padding-left:18px;
+  color:rgba(234,240,255,.82);
+}
+.bullets li{margin:8px 0}
+
+/* ============================================================
+   Resources block
+   ============================================================ */
+
+.resource-grid{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:16px;
+}
+
+.resource-grid a{
+  text-decoration:underline;
+  text-underline-offset:3px;
+  color:rgba(234,240,255,.92);
+}
+.resource-grid a:hover{color:var(--cyan)}
+
+/* ============================================================
+   Code block + copy button
+   ============================================================ */
+
+pre.code{
+  margin:0;
+  padding:14px 14px;
+  border-radius:16px;
+  background: rgba(0,0,0,.35);
+  border:1px solid rgba(255,255,255,.10);
+  overflow:auto;
+  color:rgba(234,240,255,.9);
+  line-height:1.45;
+  font-size:.92rem;
+}
+
+.btn.small{
+  margin-top:10px;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.05);
+  font-weight:750;
+  color:rgba(234,240,255,.90);
+}
+
+.btn.small:hover{
+  background: rgba(255,255,255,.07);
+  border-color: rgba(255,255,255,.22);
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+
+.footer{
+  margin-top:34px;
+}
+
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:14px;
+  padding:18px 0 10px;
+  border-top:1px solid rgba(255,255,255,.08);
+  color:rgba(234,240,255,.62);
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+
+@media (max-width: 920px){
+  .hero-grid{grid-template-columns: 1fr}
+  .grid-2{grid-template-columns:1fr}
+  .grid-3{grid-template-columns:1fr}
+  .resource-grid{grid-template-columns:1fr}
+
+  .nav{display:none}
+  .nav-toggle{display:block}
+  /* mobile menu: script.js toggles .open (the SwEYEpinch stylesheet had no rule for it) */
+  .topbar .container{position:relative}
+  .nav.open{display:flex; flex-direction:column; gap:4px; position:absolute; top:100%; left:0; right:0;
+            padding:10px 20px 14px; background:rgba(6,10,18,.94); border-bottom:1px solid rgba(255,255,255,.08)}
+}
+
+@media (max-width: 520px){
+  .container{width:min(var(--max), calc(100% - 28px))}
+  .btn.pill{width:100%; justify-content:flex-start}
+  .btn.pill .pill-tag{margin-left:auto}
+}
+
+
+/* =========================
+   Auto-rotating gallery
+   ========================= */
+
+.gallery { padding: 16px; }
+
+.gallery-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:12px;
+}
+
+.gallery-controls{ display:flex; gap:8px; }
+
+.gbtn{
+  appearance:none;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.05);
+  color: rgba(234,240,255,.9);
+  width:36px;
+  height:36px;
+  border-radius: 12px;
+  font-size: 18px;
+  line-height: 1;
+  cursor:pointer;
+}
+
+.gallery-viewport{
+  position: relative;
+  overflow: hidden;            /* key: hides non-active slides */
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.20);
+  outline: none;
+}
+
+.gallery-track{
+  display: flex;               /* key: puts slides in a row */
+  flex-direction: row;
+  width: 100%;
+  transform: translateX(0%);
+  transition: transform 420ms ease;
+  will-change: transform;
+}
+
+.gslide{
+  flex: 0 0 100%;              /* key: each slide is full viewport width */
+  margin: 0;
+  padding: 12px;
+}
+
+.gslide img{
+  width: min(720px, 100%);
+  height: 260px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Optional: keep figure area from jumping when captions vary */
+.gslide figcaption{
+  margin-top: 10px;
+  min-height: 1.6em;
+}
+
+/* Dots */
+.gallery-dots{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin-top:12px;
+}
+
+.gdot{
+  width:8px;
+  height:8px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.22);
+  background: rgba(255,255,255,.08);
+  cursor:pointer;
+}
+
+.gdot[aria-current="true"]{
+  transform: scale(1.25);
+  background: rgba(255,255,255,.45);
+  border-color: rgba(255,255,255,.45);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .gallery-track{ transition:none; }
+}
+
+/* --- Fix: don't let global img filters affect SimpleIcons in hero pills --- */
+.cta-row .pill-icon img {
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  opacity: 1 !important;
+}
+
+.btn.pill.disabled,
+.btn.pill[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* Make author links look clickable but still clean */
+.authors a{
+  color: rgba(240,245,255,.92);
+  text-decoration: underline;
+  text-decoration-color: rgba(255,255,255,.25);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  transition: color .15s ease, text-decoration-color .15s ease;
+}
+
+.authors a:hover{
+  color: #ffffff;
+  text-decoration-color: rgba(255,255,255,.75);
+}
+
+.authors a:focus-visible{
+  outline: 2px solid rgba(120,200,255,.8);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ── Responsive YouTube embed ── */
+.video-wrap{
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  border-radius: var(--r);
+  overflow: hidden;
+  background: #000;
+}
+.video-wrap iframe{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}

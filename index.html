@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Co-Annotator distills expert gaze and dictation into two guidance components for retinal OCT: where to look and what to write. +40% correct diagnoses per minute, -67% comment editing time. UIST 2026." />
+
+  <meta property="og:title" content="Co-Annotator: Expert-Distilled Guidance for Retinal OCT (UIST 2026)" />
+  <meta property="og:description" content="A gaze-aligned ViT shows residents where to look; an ontology-bounded VLM drafts what to write. Combined, correct diagnoses per minute rose 40% and comment editing time fell 67%, with accuracy preserved. UIST 2026." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://apocalyvec.github.io/co-annotator/" />
+  <meta property="og:image" content="https://apocalyvec.github.io/co-annotator/assets/social_card.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://apocalyvec.github.io/co-annotator/assets/social_card.jpg" />
+
+  <title>Co-Annotator — UIST 2026</title>
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container">
+      <a class="brand" href="#top">
+        <span class="brand-dot"></span>
+        <span class="brand-text">Co-Annotator</span>
+      </a>
+
+      <nav class="nav">
+        <a href="#overview">Overview</a>
+        <a href="#video">Video</a>
+        <a href="#results">Results</a>
+        <a href="#resources">Resources</a>
+        <a href="#citation">Citation</a>
+      </nav>
+
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-left">
+          <div class="pill">ACM UIST 2026 · Detroit</div>
+          <h1>Co-Annotator: Expert-Distilled ViT and VLM for Visual and Documentation Guidance in Age-Related Macular Degeneration</h1>
+
+          <p class="authors">
+            <a href="https://apocalyvec.github.io/" target="_blank" rel="noreferrer">Ziheng “Leo” Li*</a>
+            · Benjamin Freeman*
+            · Akshay Raman*
+            · Kavin Aravindhan Rajkumar
+            · Xinxin Fang
+            · Rishabh Srivastava
+            · <a href="https://www.cs.columbia.edu/~feiner/" target="_blank" rel="noreferrer">Steven Feiner</a>
+            · Kaveri A. Thakoor
+          </p>
+
+          <p class="affil">Columbia University</p>
+
+          <p class="lede">
+            Reading a retinal OCT scan means knowing <b>where to look</b> and <b>what to write</b>. Co-Annotator distills both from retina specialists: their <b>gaze</b> trains a Vision Transformer that highlights areas of interest, and their <b>dictation</b> trains an ontology-bounded vision–language model that pre-fills an editable biomarker draft. Deployed with ophthalmology residents across two institutions, the combined guidance raised correct diagnoses per minute by <b>40%</b> and cut comment editing time by <b>67%</b>, without compromising diagnostic accuracy.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn pill primary" href="assets/Co-Annotator_UIST2026.pdf">
+              <span class="pill-text">Paper</span>
+            </a>
+
+            <a class="btn pill" href="https://arxiv.org/abs/2608.30352" target="_blank" rel="noreferrer">
+              <span class="pill-icon"><img src="https://cdn.simpleicons.org/arxiv/ffffff" alt="" /></span>
+              <span class="pill-text">arXiv</span>
+            </a>
+
+            <a class="btn pill" href="https://doi.org/10.1145/3830398.3830722" target="_blank" rel="noreferrer">
+              <span class="pill-icon"><img src="https://cdn.simpleicons.org/doi/ffffff" alt="" /></span>
+              <span class="pill-text">10.1145/3830398.3830722</span>
+            </a>
+
+            <a class="btn pill" href="https://huggingface.co/datasets/ramanakshay/amd-expert-corpus" target="_blank" rel="noreferrer">
+              <span class="pill-icon"><img src="https://cdn.simpleicons.org/huggingface/ffffff" alt="" /></span>
+              <span class="pill-text">Expert Corpus</span>
+            </a>
+
+            <a class="btn pill" href="https://huggingface.co/ramanakshay/vlm-oct-biomarkers" target="_blank" rel="noreferrer">
+              <span class="pill-icon"><img src="https://cdn.simpleicons.org/huggingface/ffffff" alt="" /></span>
+              <span class="pill-text">Biomarker VLM</span>
+            </a>
+
+            <a class="btn pill" href="https://huggingface.co/ramanakshay/vit-oct-wamd" target="_blank" rel="noreferrer">
+              <span class="pill-icon"><img src="https://cdn.simpleicons.org/huggingface/ffffff" alt="" /></span>
+              <span class="pill-text">Gaze-aligned ViT</span>
+            </a>
+          </div>
+
+          <p class="note">
+            * co-first authors.
+          </p>
+        </div>
+
+        <div class="hero-right">
+          <figure class="card">
+            <video src="assets/interface_demo.mp4" poster="assets/interface_demo_poster.jpg" autoplay muted loop playsinline
+                   aria-label="The Co-Annotator interface: a resident toggles the attention highlights, adjusts their opacity, and edits the VLM's biomarker draft"
+                   style="display:block; width:100%; height:auto;"></video>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="overview" class="section">
+      <div class="container">
+        <h2>Overview</h2>
+
+        <div class="grid-2">
+          <div class="card pad gallery" aria-label="Figure gallery">
+
+            <div class="gallery-viewport" tabindex="0">
+              <div class="gallery-track">
+
+                <!-- Slide 0 -->
+                <figure class="gslide">
+                  <a href="assets/teaser.jpg" target="_blank" rel="noreferrer"><img src="assets/teaser_crop.jpg" alt="Expert gaze and dictation train a ViT and a VLM that guide a resident reading OCT" loading="lazy" /></a>
+                  <figcaption class="muted">Expert gaze and dictation train two guidance components: area-of-interest highlights (ViT) and an editable biomarker draft (VLM).</figcaption>
+                </figure>
+
+                <!-- Slide 1 -->
+                <figure class="gslide">
+                  <a href="assets/interface.jpg" target="_blank" rel="noreferrer"><img src="assets/interface_crop.jpg" alt="The Co-Annotator interface: thumbnail strip, selected slice, diagnosis and confidence, and the biomarker comment box" loading="lazy" /></a>
+                  <figcaption class="muted">The interface with VLM guidance: five slices per eye, a diagnosis with confidence and effort, and the pre-filled biomarker draft.</figcaption>
+                </figure>
+
+                <!-- Slide 2 -->
+                <figure class="gslide">
+                  <a href="assets/interface.jpg" target="_blank" rel="noreferrer"><img src="assets/interface_vit_crop.jpg" alt="The interface with ViT guidance: the attention heatmap over the selected slice" loading="lazy" /></a>
+                  <figcaption class="muted">With ViT guidance on: the gaze-aligned attention heatmap over the selected slice, toggled by right-click.</figcaption>
+                </figure>
+
+                <!-- Slide 3 -->
+                <figure class="gslide">
+                  <a href="assets/study_flow.jpg" target="_blank" rel="noreferrer"><img src="assets/study_flow.jpg" alt="Study flow: five-slice trials, 15 per block, in baseline, guidance and post-guidance blocks" loading="lazy" /></a>
+                  <figcaption class="muted">Study design: each trial is one eye's five-slice OCT volume, and 15 trials form a block (baseline control, guidance, post-guidance control).</figcaption>
+                </figure>
+
+                <!-- Slide 4 -->
+                <figure class="gslide">
+                  <a href="assets/us3_efficiency.jpg" target="_blank" rel="noreferrer"><img src="assets/us3_efficiency.jpg" alt="Correct diagnoses per minute: combined guidance exceeds either modality alone" loading="lazy" /></a>
+                  <figcaption class="muted">Correct diagnoses per minute: combined guidance exceeds either modality alone (* p &lt; 0.05 vs. its pre-control block).</figcaption>
+                </figure>
+              </div>
+            </div>
+
+            <div class="gallery-head">
+              <div class="gallery-controls">
+                <button class="gbtn" type="button" data-prev aria-label="Previous figure">‹</button>
+                <button class="gbtn" type="button" data-next aria-label="Next figure">›</button>
+              </div>
+            </div>
+
+            <div class="gallery-dots" aria-label="Gallery navigation"></div>
+          </div>
+
+
+          <div class="card pad">
+            <h3>Highlights</h3>
+            <ul class="bullets">
+              <li><b>Where to look:</b> a Vision Transformer aligned to retina specialists' gaze shows toggleable area-of-interest heatmaps.</li>
+              <li><b>What to write:</b> an ontology-bounded VLM, fine-tuned on expert dictation, pre-fills an editable biomarker draft.</li>
+              <li><b>Three user studies:</b> expert data collection (US1), each modality in isolation (US2), and a combined deployment across two academic institutions (US3).</li>
+              <li><b>Design principles:</b> clinical AI guidance should be <i>deferrable</i>, <i>sparse</i>, and <i>evidence-anchored</i>.</li>
+              <li><b>Open artifacts:</b> the expert distillation corpus, the biomarker VLM, and the gaze-aligned ViT are on Hugging Face.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="video" class="section alt">
+      <div class="container">
+        <h2>Video</h2>
+        <div style="margin-top: 1rem;">
+          <video controls playsinline preload="metadata" poster="assets/co-annotator-30s_poster.jpg" style="width:100%; max-width:800px; border-radius:8px;">
+            <source src="assets/co-annotator-30s.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <section id="results" class="section">
+      <div class="container">
+        <h2>Key results</h2>
+
+        <div class="grid-3">
+          <div class="card pad">
+            <h3>Combined guidance (US3)</h3>
+            <p>With both modalities together, correct diagnoses per minute rose <b>40%</b> <span class="nowrap">(3.40 → 4.76, p = 0.023)</span> and comment editing time fell <b>67%</b> <span class="nowrap">(7.2 s → 2.4 s, p = 0.023)</span>, with diagnostic accuracy preserved. Residents documented 5.36 biomarkers per AMD eye and kept 85.5% of the draft.</p>
+          </div>
+          <div class="card pad">
+            <h3>Each modality (US2)</h3>
+            <p>Both modalities preserved residents' high baseline accuracy. Attention guidance left a <b>post-guidance carryover</b>: time per eye fell 28% after the heatmap was removed <span class="nowrap">(p &lt; 0.001)</span>. VLM drafts <b>more than doubled</b> biomarker documentation <span class="nowrap">(2.3 → 5.8 per AMD eye)</span>, with 83.1% of the draft retained.</p>
+          </div>
+          <div class="card pad">
+            <h3>Expert distillation (US1)</h3>
+            <p>Aligning the ViT to expert gaze improved diagnostic micro-AUC from <span class="nowrap"><b>0.95 to 0.98</b></span>. Fine-tuning the VLM on expert dictation brought its biomarker text close to the experts' own <span class="nowrap">(MedBERTScore <b>0.867</b>)</span>.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="resources" class="section alt">
+      <div class="container">
+        <h2>Resources</h2>
+
+        <div class="card pad">
+          <div class="resource-grid">
+            <div>
+              <h3>Paper</h3>
+              <p>
+                <a href="assets/Co-Annotator_UIST2026.pdf">Co-Annotator_UIST2026.pdf</a>
+                <span class="muted">· ACM UIST 2026 · CC BY 4.0</span>
+              </p>
+            </div>
+
+            <div>
+              <h3>Expert Distillation Corpus</h3>
+              <p>
+                <a href="https://huggingface.co/datasets/ramanakshay/amd-expert-corpus" target="_blank" rel="noreferrer">amd-expert-corpus on Hugging Face</a>
+                <span class="muted"> · Gaze-derived attention targets and dictation-derived biomarker labels from US1</span>
+              </p>
+            </div>
+
+            <div>
+              <h3>Biomarker VLM</h3>
+              <p>
+                <a href="https://huggingface.co/ramanakshay/vlm-oct-biomarkers" target="_blank" rel="noreferrer">vlm-oct-biomarkers on Hugging Face</a>
+                <span class="muted"> · Ontology-bounded biomarker drafts for OCT</span>
+              </p>
+            </div>
+
+            <div>
+              <h3>Gaze-aligned ViT</h3>
+              <p>
+                <a href="https://huggingface.co/ramanakshay/vit-oct-wamd" target="_blank" rel="noreferrer">vit-oct-wamd on Hugging Face</a>
+                <span class="muted"> · Wet AMD classifier whose attention follows expert gaze</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="citation" class="section">
+      <div class="container">
+        <h2>Citation</h2>
+
+        <div class="grid-2">
+          <div class="card pad">
+            <h3>BibTeX</h3>
+            <pre class="code" id="bibtex">@inproceedings{li2026coannotator,
+  title     = {Co-Annotator: Expert-Distilled ViT and VLM for Visual and Documentation Guidance in Age-Related Macular Degeneration},
+  author    = {Li, Ziheng and Freeman, Benjamin and Raman, Akshay and Rajkumar, Kavin Aravindhan and Fang, Xinxin and Srivastava, Rishabh and Feiner, Steven and Thakoor, Kaveri A.},
+  booktitle = {The 39th Annual ACM Symposium on User Interface Software and Technology (UIST '26)},
+  year      = {2026},
+  address   = {Detroit, MI, USA},
+  publisher = {ACM},
+  doi       = {10.1145/3830398.3830722}
+}</pre>
+            <button class="btn small" data-copy="#bibtex">Copy</button>
+          </div>
+
+          <div class="card pad">
+            <h3>Links</h3>
+            <ul class="bullets">
+              <li><a href="https://doi.org/10.1145/3830398.3830722" target="_blank" rel="noreferrer">DOI: 10.1145/3830398.3830722</a></li>
+              <li><a href="https://arxiv.org/abs/2608.30352" target="_blank" rel="noreferrer">arXiv: 2608.30352</a></li>
+              <li><a href="assets/Co-Annotator_UIST2026.pdf">Paper PDF</a></li>
+              <li><a href="assets/co-annotator-30s.mp4">30-second video</a></li>
+              <li><a href="https://huggingface.co/datasets/ramanakshay/amd-expert-corpus" target="_blank" rel="noreferrer">Expert distillation corpus (Hugging Face)</a></li>
+              <li><a href="https://huggingface.co/ramanakshay/vlm-oct-biomarkers" target="_blank" rel="noreferrer">Biomarker VLM (Hugging Face)</a></li>
+              <li><a href="https://huggingface.co/ramanakshay/vit-oct-wamd" target="_blank" rel="noreferrer">Gaze-aligned ViT (Hugging Face)</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <footer class="footer">
+          <div class="container footer-inner">
+            <span class="muted">© 2026 Co-Annotator authors.</span>
+            <span class="muted">Built for GitHub Pages.</span>
+          </div>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
